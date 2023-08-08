@@ -1,8 +1,12 @@
 # java-fundamentals
 
 **Lab-01**
-> Method Used in this Repo => [Main-Java](./basics/Main.java)
+> Methods Used in this Repo => [Main-Java](./basics/Main.java)
 
 - Pluralize
 - flipNHeads
 - clock
+- roll
+- containsDuplicates
+- calculateAverage
+- calculateLowestAverage
