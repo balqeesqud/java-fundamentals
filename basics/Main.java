@@ -1,7 +1,10 @@
 package basics;
 
+import basiclibrary.lib.src.main.Library;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
@@ -15,8 +18,55 @@ public class Main {
 
     flipNHeads(2);
 
-    clock();
+    //clock (); // is written down
 
+    //=============================================================================
+
+    Library library = new Library();
+
+    //=============================================================================
+
+    int[] rolls = library.roll(4);
+    System.out.print("Dice rolls: ");
+    for (int value : rolls) {
+      System.out.print(value + " ");
+    }
+
+    //=============================================================================
+
+    int[] numbersWithDuplicates = {88,57,75,34,22,22};
+    boolean hasDuplicates = library.containsDuplicates(numbersWithDuplicates);
+
+    if (hasDuplicates) {
+      System.out.println(" ");
+      System.out.println( Arrays.toString(numbersWithDuplicates) +" This array contains duplicate values." );
+    } else {
+      System.out.println("The array does not contain duplicate values.");
+    }
+
+
+    //=============================================================================
+
+    int[] numbers = {25,88,74,2,10};
+    double average = library.calculateAverage(numbers);
+    System.out.println("The average is: " + average);
+
+
+    //==============================================================================
+
+    int[][] weeklyMonthTemperatures = {
+            {66, 64, 58, 65, 71, 57, 60},
+            {57, 65, 65, 70, 72, 65, 51},
+            {55, 54, 60, 53, 59, 57, 61},
+            {65, 56, 55, 52, 55, 62, 57}
+    };
+
+    int[] lowestAverageArray = library.calculateLowestAverage(weeklyMonthTemperatures);
+    System.out.println("Array with the lowest average: ");
+    for (int value : lowestAverageArray) {
+      System.out.print(value + " ");
+    }
+    clock();
   }
 
   public static String pluralize(String word, int number) { // I removed void in order to use return & set it String to
