@@ -66,6 +66,7 @@ public class Main {
     for (int value : lowestAverageArray) {
       System.out.print(value + " ");
     }
+    System.out.println(" ");
     clock();
   }
 
