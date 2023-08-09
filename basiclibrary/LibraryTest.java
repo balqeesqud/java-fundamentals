@@ -13,6 +13,17 @@ class LibraryTest {
         assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
     }
 
+    
+  @Test
+    public void testRoll() {
+        Library library = new Library();
+        int[] rolls = library.roll(4);
+
+        assertEquals(4, rolls.length);
+        for (int roll : rolls) {
+            assertTrue(roll >= 1 && roll <= 6);
+        }
+    
     @Test
     public void testContainsDuplicatesOrNot() {   // testing duplicate method
         Library library = new Library();
@@ -26,5 +37,16 @@ class LibraryTest {
         int[] numbers = {1, 2, 3, 4, 5, 3};
         double average = library.calculateAverage(numbers);
         assertEquals(3.0, average);
+    }
+    @Test
+    public void testCalculateLowestAverage() {
+        Library library = new Library();
+        int[][] arrays = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        int[] lowestAverageArray = library.calculateLowestAverage(arrays);
+        assertArrayEquals(new int[]{1, 2, 3}, lowestAverageArray);
     }
 }
