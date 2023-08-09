@@ -23,7 +23,8 @@ class LibraryTest {
         for (int roll : rolls) {
             assertTrue(roll >= 1 && roll <= 6);
         }
-    
+    }
+        
     @Test
     public void testContainsDuplicatesOrNot() {   // testing duplicate method
         Library library = new Library();
