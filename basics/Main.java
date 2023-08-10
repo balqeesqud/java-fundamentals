@@ -16,6 +16,10 @@ public class Main {
     int catCount = 2;
     System.out.println("I own " + catCount + " " + pluralize("cat", catCount) + ".");
 
+    int monekyCount = 0;
+    System.out.println("I own " + monekyCount + " " + pluralize("moneky", monekyCount) + ".");
+
+
     flipNHeads(2);
 
     //clock (); // is written down
@@ -72,7 +76,7 @@ public class Main {
 
   public static String pluralize(String word, int number) { // I removed void in order to use return & set it String to
                                                             // get a String value
-    if (number > 1) {
+    if (number >= 0) {
       return word + 's';
 
     } else {

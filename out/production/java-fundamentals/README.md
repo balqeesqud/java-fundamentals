@@ -10,3 +10,6 @@
 - containsDuplicates
 - calculateAverage
 - calculateLowestAverage
+
+> Created a basicLibrary package with gradle initialized. 
+> Created Test cases inside LibraryTest.java for tha main library class.
