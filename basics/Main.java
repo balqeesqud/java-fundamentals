@@ -113,7 +113,7 @@ public class Main {
 
   public static String pluralize(String word, int number) { // I removed void in order to use return & set it String to
                                                             // get a String value
-    if (number >= 0) {
+    if (number == 0 || number >1 ) {
       return word + 's';
 
     } else {
