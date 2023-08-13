@@ -69,19 +69,18 @@ public class Library {
         int minTemp = weeklyMonthTemperaturesSeattle[0][0];
         int maxTemp = weeklyMonthTemperaturesSeattle[0][0];
 
-        for (int [] weekTemp: weeklyMonthTemperaturesSeattle){
-            for ( int temp : weekTemp ){
-                if (temp<minTemp) {
+        for (int[] weekTemp : weeklyMonthTemperaturesSeattle) {
+            for (int temp : weekTemp) {
+                if (temp < minTemp) {
                     minTemp = temp;
                 }
-                if (temp> maxTemp){
-                    maxTemp=temp;
+                if (temp > maxTemp) {
+                    maxTemp = temp;
                 }
             }
         }
-        StringBuilder result = new StringBuilder("High: " + maxTemp + "\n" +
-                "Low: " + minTemp + "\n");
-
+        String result = "High: " + maxTemp + "\n" +
+                "Low: " + minTemp + "\n";
 
         HashSet<Integer> uniqueTemperatures = new HashSet<>();
 
@@ -93,12 +92,12 @@ public class Library {
 
         for (int temp = minTemp; temp <= maxTemp; temp++) {
             if (!uniqueTemperatures.contains(temp)) {
-                result.append("Never saw temperature: ").append(temp).append("\n");
+                result += "Never saw temperature: " + temp + "\n";
             }
         }
-        return result.toString();
-    }
 
+        return result;
+    }
     public static String tally(List<String> votes) {
         Map<String, Integer> voteCounts = new HashMap<>();
 

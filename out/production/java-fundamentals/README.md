@@ -26,3 +26,6 @@
  
 
 > - Created Test cases in [App Test](./linter/app/src/test/java/linter/AppTest.java)
+- FewErrors.js 
+- ManyErrors.js
+- SingleError.js
