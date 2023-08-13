@@ -2,13 +2,19 @@ package basics;
 
 import basiclibrary.lib.src.main.Library;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
+import static basiclibrary.lib.src.main.Library.*;
+import static linter.App.findMissingSemicolons;
+
 public class Main {
-  public static void main(String[] args) throws InterruptedException {
+  public static void main(String[] args) {
 
     int dogCount = 1;
     System.out.println("I own " + dogCount + " " + pluralize("dog", dogCount) + ".");
@@ -16,62 +22,93 @@ public class Main {
     int catCount = 2;
     System.out.println("I own " + catCount + " " + pluralize("cat", catCount) + ".");
 
-    int monekyCount = 0;
-    System.out.println("I own " + monekyCount + " " + pluralize("moneky", monekyCount) + ".");
+    int monkeyCount = 0;
+    System.out.println("I own " + monkeyCount + " " + pluralize("monkey", monkeyCount) + ".");
 
 
     flipNHeads(2);
 
-    //clock (); // is written down
-
-    //=============================================================================
-
-    Library library = new Library();
-
-    //=============================================================================
-
-    int[] rolls = library.roll(4);
-    System.out.print("Dice rolls: ");
-    for (int value : rolls) {
-      System.out.print(value + " ");
-    }
-
-    //=============================================================================
-
-    int[] numbersWithDuplicates = {88,57,75,34,22,22};
-    boolean hasDuplicates = library.containsDuplicates(numbersWithDuplicates);
-
-    if (hasDuplicates) {
-      System.out.println(" ");
-      System.out.println( Arrays.toString(numbersWithDuplicates) +" This array contains duplicate values." );
-    } else {
-      System.out.println("The array does not contain duplicate values.");
-    }
-
-
-    //=============================================================================
-
-    int[] numbers = {25,88,74,2,10};
-    double average = library.calculateAverage(numbers);
-    System.out.println("The average is: " + average);
-
-
-    //==============================================================================
-
-    int[][] weeklyMonthTemperatures = {
+    int[][] weeklyMonthTemperaturesSeattle = {
             {66, 64, 58, 65, 71, 57, 60},
             {57, 65, 65, 70, 72, 65, 51},
             {55, 54, 60, 53, 59, 57, 61},
             {65, 56, 55, 52, 55, 62, 57}
     };
 
-    int[] lowestAverageArray = library.calculateLowestAverage(weeklyMonthTemperatures);
-    System.out.println("Array with the lowest average: ");
-    for (int value : lowestAverageArray) {
-      System.out.print(value + " ");
-    }
-    System.out.println(" ");
-    clock();
+    String analysisResult = analyzeWeatherData(weeklyMonthTemperaturesSeattle);
+    System.out.println(analysisResult);
+
+
+    List<String> votes = new ArrayList<>();
+    votes.add("Bush");
+    votes.add("Bush");
+    votes.add("Bush");
+    votes.add("Shrub");
+    votes.add("Hedge");
+    votes.add("Shrub");
+    votes.add("Bush");
+    votes.add("Hedge");
+    votes.add("Bush");
+
+
+    String winner = tally(votes);
+    System.out.println(winner + " received the most votes!");
+
+
+    File filePath= new File("linter/resources/gates.js");
+    String errorMessage = findMissingSemicolons (filePath);
+    System.out.println(errorMessage);
+
+      //clock (); // is written down
+
+      //=============================================================================
+
+      Library library = new Library();
+
+      //=============================================================================
+
+      int[] rolls = library.roll(4);
+      System.out.print("Dice rolls: ");
+      for (int value : rolls) {
+          System.out.print(value + " ");
+      }
+
+      //=============================================================================
+
+      int[] numbersWithDuplicates = {88, 57, 75, 34, 22, 22};
+      boolean hasDuplicates = library.containsDuplicates(numbersWithDuplicates);
+
+      if (hasDuplicates) {
+          System.out.println(" ");
+          System.out.println(Arrays.toString(numbersWithDuplicates) + " This array contains duplicate values.");
+      } else {
+          System.out.println("The array does not contain duplicate values.");
+      }
+
+
+      //=============================================================================
+
+      int[] numbers = {25, 88, 74, 2, 10};
+      double average = library.calculateAverage(numbers);
+      System.out.println("The average is: " + average);
+
+
+      //==============================================================================
+
+      int [] [] weeklyMonthTemperatures = {
+              {66, 64, 58, 65, 71, 57, 60},
+              {57, 65, 65, 70, 72, 65, 51},
+              {55, 54, 60, 53, 59, 57, 61},
+              {65, 56, 55, 52, 55, 62, 57}
+      };
+
+      int[] lowestAverageArray = library.calculateLowestAverage(weeklyMonthTemperatures);
+      System.out.println("Array with the lowest average: ");
+      for (int value : lowestAverageArray) {
+          System.out.print(value + " ");
+      }
+      System.out.println(" ");
+      clock();
   }
 
   public static String pluralize(String word, int number) { // I removed void in order to use return & set it String to
