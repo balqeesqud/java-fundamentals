@@ -10,6 +10,7 @@ public class Restaurant {
     protected int numberOfStars;
     protected int price;
 
+
     public Restaurant() {
         System.out.println(" No Param Constructor");
     }
@@ -18,13 +19,19 @@ public class Restaurant {
         this.name = name;
         this.numberOfStars = numberOfStars;
         this.price = price;
-        this.reviews = new ArrayList<>();
+        this.reviews = new ArrayList<>();  //initializes an ArrayList named reviews within the Restaurant class. This ArrayList will be used to store
+                                           // instances of the Review class that are associated with the particular restaurant instance.
     }
     public void addReview(Review review) {
         if (!reviews.contains(review)) {
             reviews.add(review);
             updateStars();
         }
+
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
     }
 
         private void updateStars(){
@@ -36,9 +43,9 @@ public class Restaurant {
         }
 
     private String getPriceCategorySymbol(int price) {
-        String symbols = "";
+        StringBuilder symbols = new StringBuilder();
         for (int i = 0; i < price; i++) {
-            symbols+= "$" ;
+            symbols.append("$");
         }
         return symbols.toString();
     }

@@ -5,11 +5,13 @@ public class Review {
     protected String body;
     protected String author;
     protected int numberOfStars;
+    protected Restaurant restaurant;
+
 
     public Review() {
         System.out.println("Review No Param Constructor");
     }
-   private Restaurant restaurant;
+
 
     public Review(String body, String author, int numberOfStars) {
         this.body = body;
@@ -20,6 +22,8 @@ public class Review {
         this.body = body;
         this.author = author;
         this.numberOfStars = numberOfStars;
+        this.restaurant = restaurant;
+        // When a review is created, we add it to the associated restaurant's reviews
         restaurant.addReview(this);
     }
     public int getNumberOfStars() {
@@ -29,6 +33,16 @@ public class Review {
 
     @Override
     public String toString() {
-        return "Review{body='" + body + "', author='" + author + "', numberOfStars=" + numberOfStars + "}";
+        return "Review{" +
+                "body='" + body + '\'' +
+                ", author='" + author + '\'' +
+                ", numberOfStars=" + numberOfStars +
+                ", restaurant=" + restaurant.toString() +
+                '}';
     }
+
+//    @Override
+//    public String toString() {
+//        return "Review{body='" + body + "', author='" + author + "', numberOfStars=" + numberOfStars + "}";
+//    }
 }
