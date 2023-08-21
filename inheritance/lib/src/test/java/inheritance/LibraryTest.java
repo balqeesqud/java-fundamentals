@@ -13,7 +13,7 @@ class LibraryTest {
     @Test
     void testRestaurantToString() {
         Restaurant restaurant = new Restaurant("Tasty Bites", 4, 3);
-        String expected = "Restaurant{name='Tasty Bites', numberOfStars=4, price= " + restaurant.getPrice() + "'}";
+        String expected = "Restaurant{name='Tasty Bites', numberOfStars=4, price= 3'}";
         assertEquals(expected, restaurant.toString());
     }
 
@@ -31,6 +31,6 @@ class LibraryTest {
         Review review = new Review("Delicious food and great ambiance!", "John Doe", 5, restaurant);
 
         assertEquals("Tasty Bites", restaurant.getName());
-        assertEquals("Restaurant{name='Tasty Bites', numberOfStars=4, price= 3'}\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: Tasty Bites]", restaurant.toString() + "\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: "+restaurant.getName() + "]");
+        assertEquals("Restaurant{name='Tasty Bites', numberOfStars=5, price= 3'}\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: Tasty Bites]", restaurant.toString() + "\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: "+restaurant.getName() + "]");
     }
 }
