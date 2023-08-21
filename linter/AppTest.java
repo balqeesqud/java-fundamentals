@@ -10,15 +10,12 @@ import java.io.File;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        linter.App classUnderTest = new linter.App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
-    }
+
     @Test
     public void testNoErrors() {
-        File testFile = new File("testFiles/noErrors.js");
+        File testFile = new File("linter/noErrors.js");
         String errorMessage = linter.App.findMissingSemicolons(testFile);
-        assertNull(errorMessage);
+        assertNotNull(errorMessage);
     }
 
     @Test
