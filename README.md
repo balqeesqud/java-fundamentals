@@ -62,5 +62,5 @@
      2. removeMovie method.
      3. toString
    - Testing
-    JUnit test classes for each class (ShopTest, ReviewTest, TheaterTest) containing test methods
+    JUnit test classes for each class inside (libraryTest) containing test methods
 
