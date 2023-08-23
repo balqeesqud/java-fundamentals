@@ -5,6 +5,8 @@ package inheritance.lib.src.test.java.inheritance;
 
 import inheritance.lib.src.main.java.inheritance.Restaurant;
 import inheritance.lib.src.main.java.inheritance.Review;
+import inheritance.lib.src.main.java.inheritance.Shop;
+import inheritance.lib.src.main.java.inheritance.Theater;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,8 +22,9 @@ class LibraryTest {
 
     @Test
     void testReviewToString() {
-        Review review = new Review("Delicious food and great ambiance!", "John Doe", 5);
-        String expected = "Review{body='Delicious food and great ambiance!', author='John Doe', numberOfStars=5}";
+        Restaurant restaurant = new Restaurant("Tasty Bites", 4, 3);
+        Review review = new Review("Delicious food and great ambiance!", "John Doe", 5, restaurant);
+        String expected = "Review{body='Delicious food and great ambiance!', author='John Doe', numberOfStars=5, Place=Tasty Bites}";
         assertEquals(expected, review.toString());
     }
 
@@ -32,5 +35,37 @@ class LibraryTest {
 
         assertEquals("Tasty Bites", restaurant.getName());
         assertEquals("Restaurant{name='Tasty Bites', numberOfStars=5, price= 3'}\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: Tasty Bites]", restaurant.toString() + "\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: "+restaurant.getName() + "]");
+    }
+
+    @Test
+    public void testShopConstructor() {
+        Shop shop = new Shop("Fashion Haven", "Trendy clothes for all ages", 2);
+        assertEquals("Fashion Haven", shop.getName());
+        assertEquals("Trendy clothes for all ages", shop.getDescription());
+        assertEquals(2, shop.getNumberOfDollarSigns());
+    }
+    @Test
+    public void testReviewConstructorForShop() {
+        Shop shop = new Shop("Fashion Haven", "Trendy clothes for all ages", 2);
+        Review review = new Review("Great collection and friendly staff!", "Adam", 4, shop);
+        assertEquals("Great collection and friendly staff!", review.getBody());
+        assertEquals("Adam", review.getAuthor());
+        assertEquals(4, review.getNumberOfStars());
+    }
+    @Test
+    public void testReviewConstructorForTheater() {
+        Theater theater = new Theater("Cineplex");
+        Review review = new Review("Great cinema experience!", "Eva", 5, "Joker" , theater);
+        assertEquals("Great cinema experience!", review.getBody());
+        assertEquals("Eva", review.getAuthor());
+        assertEquals(5, review.getNumberOfStars());
+        assertEquals("Joker", review.getMovie());
+    }
+
+    @Test
+    public void testTheaterConstructor() {
+        Theater theater = new Theater("Abdali");
+        assertEquals("Abdali", theater.getName());
+        assertTrue(theater.getMovies().isEmpty());
     }
 }

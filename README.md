@@ -51,3 +51,16 @@
     - `getNumberOfStars()`: Returns the number of stars in the review.
     - `toString()`: Generates a string representation of the review, including its content, author, and number of stars.
 
+
+**Lab-07**
+>Classes created in [Library](./inheritance/lib/src/main/java/inheritance/Library.java)
+   - Shop
+     Created a shop with a name, description, and number of dollar signs.
+   - Theater
+     Created a theater with a name and initializes an empty list for movies.
+     1. addMovie method.
+     2. removeMovie method.
+     3. toString
+   - Testing
+    JUnit test classes for each class (ShopTest, ReviewTest, TheaterTest) containing test methods
+
