@@ -1,48 +1,80 @@
 package inheritance.lib.src.main.java.inheritance;
 
 public class Review {
-
-    protected String body;
-    protected String author;
-    protected int numberOfStars;
-    protected Restaurant restaurant;
+    private String body;
+    private String author;
+    private float numberOfStars;
+    private Restaurant restaurant;
+    private Shop shop;
+    private Theater theater;
+    private String movie;
 
 
     public Review() {
         System.out.println("Review No Param Constructor");
     }
 
+    public Review(String body, String author, float numberOfStars) {
+        this.body = body;
+        this.author = author;
+        this.numberOfStars = numberOfStars;
+    }
 
-    public Review(String body, String author, int numberOfStars) {
-        this.body = body;
-        this.author = author;
-        this.numberOfStars = numberOfStars;
-    }
-    public Review(String body, String author, int numberOfStars,  Restaurant restaurant) {
-        this.body = body;
-        this.author = author;
-        this.numberOfStars = numberOfStars;
+    public Review(String body, String author, float numberOfStars, Restaurant restaurant) {
+        this(body, author, numberOfStars);
         this.restaurant = restaurant;
-        // When a review is created, we add it to the associated restaurant's reviews
-        restaurant.addReview(this);
+        restaurant.addReview(this); // Add the review to the restaurant
     }
-    public int getNumberOfStars() {
+
+    public Review(String body, String author, float numberOfStars, Shop shop) {
+        this(body, author, numberOfStars);
+        this.shop = shop;
+        shop.addReview(this); // Add the review to the shop
+    }
+
+    public Review(String body, String author, int numberOfDollarSigns, Theater theater) {
+        this(body, author, numberOfDollarSigns);
+        this.theater = theater;
+        theater.addReview(this);
+    }
+
+    ///////
+    public Review(String body, String author, int numberOfStars,String movie, Theater theater) {
+        this(body, author, numberOfStars);
+        this.theater = theater;
+        this.movie=movie;
+        theater.addReview(this);
+    }
+
+    public float getNumberOfStars() {
         return numberOfStars;
     }
 
-
     @Override
     public String toString() {
+        String establishmentName = restaurant != null ? restaurant.getName() :
+                shop != null ? shop.getName() :
+                        theater != null ? theater.getName() : "Unknown Place";
+
+        String movieInfo = theater != null && movie != null ? " (Movie: " + movie + ")" : "";
+
         return "Review{" +
                 "body='" + body + '\'' +
                 ", author='" + author + '\'' +
                 ", numberOfStars=" + numberOfStars +
-                ", restaurant=" + restaurant.toString() +
+                ", Place=" + establishmentName + movieInfo +
                 '}';
     }
 
-//    @Override
-//    public String toString() {
-//        return "Review{body='" + body + "', author='" + author + "', numberOfStars=" + numberOfStars + "}";
-//    }
+    public String getBody() {
+        return body;
+    }
+
+    public String getMovie() {
+        return movie;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
 }

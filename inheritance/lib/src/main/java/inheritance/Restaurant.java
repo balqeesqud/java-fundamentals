@@ -5,9 +5,8 @@ import java.util.List;
 
 public class Restaurant {
     private List<Review> reviews;
-
     protected String name;
-    protected int numberOfStars;
+    protected double numberOfStars;
     protected int price;
 
 
@@ -55,6 +54,7 @@ public class Restaurant {
         return "Restaurant{" +
                 "name='" + name + '\'' +
                 ", numberOfStars=" + numberOfStars +
+                ", stars= " + numberOfStars  + '\'' +
                 ", price= " + price  + '\'' +
         '}';
     }
@@ -67,7 +67,7 @@ public class Restaurant {
         this.name = name;
     }
 
-    public int getNumberOfStars() {
+    public double getNumberOfStars() {
         return numberOfStars;
     }
 
