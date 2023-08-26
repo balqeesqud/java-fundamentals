@@ -1,9 +1,9 @@
 package inheritance.lib.src.main.java.inheritance;
 
-public class Review {
+public  class Review {
     private String body;
     private String author;
-    private float numberOfStars;
+    protected float numberOfStars;
     private Restaurant restaurant;
     private Shop shop;
     private Theater theater;

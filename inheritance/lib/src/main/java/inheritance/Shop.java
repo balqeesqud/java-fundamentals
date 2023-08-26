@@ -1,27 +1,20 @@
 package inheritance.lib.src.main.java.inheritance;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Shop {
-    private String name;
+public class Shop extends Place {
     private String description;
     private int numberOfDollarSigns;
-    private List<Review> reviews;
+
     public Shop(String name, String description, int numberOfDollarSigns) {
-        this.name = name;
+        super(name);
         this.description = description;
         this.numberOfDollarSigns = numberOfDollarSigns;
-        this.reviews = new ArrayList<>();
+
     }
 
-    public void addReview(Review review) {
-        if (!reviews.contains(review)) {
-            reviews.add(review);
-        }
-    }
 
-    private void updateDollarSigns(){
+    private void updateDollarSigns() {
         int totalSigns = 0;
         for (Review review : reviews) {
             totalSigns += review.getNumberOfStars();
@@ -43,15 +36,12 @@ public class Shop {
         return reviews;
     }
 
-    public int getNumberOfDollarSigns() {
-        return numberOfDollarSigns;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public String getName() {
-        return name;
+    public int getNumberOfDollarSigns() {
+        return numberOfDollarSigns;
     }
 }
+

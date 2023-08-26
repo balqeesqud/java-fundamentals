@@ -15,7 +15,7 @@ class LibraryTest {
     @Test
     void testRestaurantToString() {
         Restaurant restaurant = new Restaurant("Tasty Bites", 4, 3);
-        String expected = "Restaurant{name='Tasty Bites', numberOfStars=4, price= 3'}";
+        String expected = "Restaurant{name='Tasty Bites', numberOfStars=4.0, price= 3'}";
         assertEquals(expected, restaurant.toString());
     }
 
@@ -24,7 +24,7 @@ class LibraryTest {
     void testReviewToString() {
         Restaurant restaurant = new Restaurant("Tasty Bites", 4, 3);
         Review review = new Review("Delicious food and great ambiance!", "John Doe", 5, restaurant);
-        String expected = "Review{body='Delicious food and great ambiance!', author='John Doe', numberOfStars=5, Place=Tasty Bites}";
+        String expected = "Review{body='Delicious food and great ambiance!', author='John Doe', numberOfStars=5.0, Place=Tasty Bites}";
         assertEquals(expected, review.toString());
     }
 
@@ -34,7 +34,7 @@ class LibraryTest {
         Review review = new Review("Delicious food and great ambiance!", "John Doe", 5, restaurant);
 
         assertEquals("Tasty Bites", restaurant.getName());
-        assertEquals("Restaurant{name='Tasty Bites', numberOfStars=5, price= 3'}\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: Tasty Bites]", restaurant.toString() + "\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: "+restaurant.getName() + "]");
+        assertEquals("Restaurant{name='Tasty Bites', numberOfStars=4.0, price= 3'}\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: Tasty Bites]", restaurant.toString() + "\nReviews: [Review by John Doe\nStars: 5\nBody: Delicious food and great ambiance!\nAbout Restaurant: "+restaurant.getName() + "]");
     }
 
     @Test
